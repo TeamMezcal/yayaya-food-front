@@ -1,13 +1,17 @@
+import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/misc/login/login.component';
 import { RegisterComponent } from './components/misc/register/register.component';
+import { IsauthGuard } from './shared/guards/isauth.guard';
+import { IsNotAuthGuard } from './shared/guards/is-not-auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: "login", pathMatch:"full"},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-
+  {path: 'login', canActivate:[IsNotAuthGuard] ,component: LoginComponent},
+  {path: 'register', canActivate:[IsNotAuthGuard] ,component: RegisterComponent},
+  {path: 'login/register', redirectTo: "register"},
+  {path: 'mealsList', canActivate: [IsauthGuard], component: MealListComponent},
 ];
 
 @NgModule({
