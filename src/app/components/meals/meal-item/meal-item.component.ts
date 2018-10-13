@@ -1,15 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from './../../../shared/services/session.service';
+import { Meal } from './../../../shared/models/meal.model';
+import { User } from './../../../shared/models/user.model';
+import { Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { MealService } from './../../../shared/services/meal.service'
+
 
 @Component({
-  selector: 'app-meal-item',
-  templateUrl: './meal-item.component.html',
-  styleUrls: ['./meal-item.component.css']
+  selector: 'app-post-item',
+  templateUrl: './post-item.component.html',
+  styleUrls: ['./post-item.component.css']
 })
-export class MealItemComponent implements OnInit {
+export class PostItemComponent implements OnInit, OnDestroy {
+  @Input() post: Meal = new Meal();
+  authUser: User = new User();
+  onAuthUserChanges: Subscription;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private sessionService: SessionService,
+    private postService: PostService) { }
 
   ngOnInit() {
+    this.authUser = this.sessionService.user;
+    this.onAuthUserChanges = this.sessionService.onUserChanges()
+      .subscribe((user: User) => this.authUser = user);
+  }
+
+  ngOnDestroy() {
+    this.onAuthUserChanges.unsubscribe();
+  }
+
+
+  onClickPost() {
+    console.log(this.post);
+    this.router.navigate(['/users', this.post.user, 'posts', this.post.id]);
   }
 
 }
