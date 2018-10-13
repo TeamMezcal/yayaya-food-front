@@ -1,4 +1,4 @@
-import { PostFormComponent } from './../post-form/post-form.component';
+import { MealCreateComponent } from './../meal-create/';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Meal } from './../../../shared/models/meal.model';
