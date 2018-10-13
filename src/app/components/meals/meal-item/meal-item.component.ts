@@ -9,9 +9,9 @@ import { MealsService } from './../../../shared/services/meal.service'
 
 
 @Component({
-  selector: 'app-post-item',
-  templateUrl: './post-item.component.html',
-  styleUrls: ['./post-item.component.css']
+  selector: 'app-meal-item',
+  templateUrl: './meal-item.component.html',
+  styleUrls: ['./meal-item.component.css']
 })
 export class MealItemComponent implements OnInit, OnDestroy {
   @Input() meal: Meal = new Meal();
