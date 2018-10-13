@@ -1,6 +1,7 @@
 
 
 <form (ngSubmit)="onClickSubmitLogin()" #form="ngForm">
+  <h3>Login</h3>
     <div class="form-group">
       <label for="exampleDropdownFormEmail2">Email address</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required>
@@ -9,10 +10,12 @@
       <label for="exampleDropdownFormPassword2">Password</label>
       <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required>
     </div>
-    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Sign in</button>
-    <a [routerLink]="['register']">
-        <button class="btn btn-secondary">Register</button> 
-    </a>
+    <br>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-success btn-block">Login</button>
+    <br>
+    <p> - or - </p>
+    <a class="btn btn-secondary btn-block" [routerLink]="['/register']">Register</a>
+    <!-- <button class="btn btn-secondary" [routerLink]="['register']">Register</button>  -->
   </form>
 
   errors: {{myError | json}}

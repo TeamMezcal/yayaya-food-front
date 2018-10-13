@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: "login", pathMatch:"full"},
   {path: 'login', canActivate:[IsNotAuthGuard] ,component: LoginComponent},
   {path: 'register', canActivate:[IsNotAuthGuard] ,component: RegisterComponent},
-  {path: 'login/register', redirectTo: "register"},
+  //{path: 'login/register', redirectTo: "register"},
   {path: 'mealsList', canActivate: [IsauthGuard], component: MealListComponent},
 ];
 

@@ -1,18 +1,20 @@
 
 
 <form (ngSubmit)="onClickRegisterLogin()" #formRegister="ngForm">
+  <h3>Register</h3>
     <div class="form-group">
       <label for="exampleDropdownFormEmail2">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required autocomplete>
     </div>
     <div class="form-group">
       <label for="exampleDropdownFormPassword2">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required autocomplete>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-    <a [routerLink]="['login']">
-        <button class="btn btn-secondary">Login</button> 
-    </a>
+    <br>
+    <a class="btn btn-secondary btn-block" [routerLink]="['/login']">Login</a>
+    <br>
+    <p> - or - </p>
+    <button type="submit" [disabled]="!formRegister.valid" class="btn btn-success btn-block">Register</button>
   </form>
 
   errors: {{myError}}
