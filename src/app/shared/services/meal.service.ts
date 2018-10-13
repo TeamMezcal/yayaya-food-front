@@ -56,7 +56,14 @@ export class MealsService extends BaseApiService {
         catchError(this.handleError));
   }
 
-  
+  getMealDetail(id: string): Observable<Meal | ApiError> {
+    return this.http.get<Meal>(`${MealsService.MEALS_API}/${id}`, BaseApiService.defaultOptions)
+      .pipe(
+        map((meal: Meal) => Object.assign(new Meal(), meal)),
+        catchError(this.handleError));
+  }
+
+
 
   create(userId: string, meal: Meal): Observable < Meal | ApiError > {
     return this.http.post<Meal>(`${MealsService.USER_API}/${userId}${MealsService.MEALS_API}`, meal.asFormData(), { withCredentials: true })
