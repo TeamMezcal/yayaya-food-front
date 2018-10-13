@@ -7,24 +7,38 @@ import { Subscription } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  selector: 'app-meal-list',
+  templateUrl: './meal-list.component.html',
+  styleUrls: ['./meal-list.component.css']
 })
 export class MealListComponent implements OnInit, OnDestroy {
   meals: Array<Meal> = [];
   onMealsChangesSubscription: Subscription;
   @ViewChild(MealCreateComponent) postCreateComponent: MealCreateComponent;
 
-  constructor(
-    private route: ActivatedRoute,
-    private mealsService: MealsService) { }
+  // private route: ActivatedRoute;
+  // private mealsService: MealsService;
+  constructor(private route: ActivatedRoute, private mealsService: MealsService) {
+    // this.route = route;
+    // this.mealsService = mealsService
+  }
 
   ngOnInit() {
-    this.route.params.pipe(
-      map(params => params.userId),
-      switchMap(userId => this.mealsService.list(userId))
-    ).subscribe((meals: Array<Meal>) => this.meals = meals);
+    // this.route.params.pipe(
+    //   map(params => {
+    //     console.info('PARAMS --> ', params)
+    //     return params.userId
+    //   }),
+    //   switchMap(userId => this.mealsService.list(userId))
+    // ).subscribe((meals: Array<Meal>) => this.meals = meals);
+
+    this.mealsService.listAllMeals()
+      .subscribe((meals: Array<Meal>) => {
+        let reversedMeals = meals.reverse();
+        this.meals = reversedMeals
+      }); 
+   
+
 
     this.onMealsChangesSubscription = this.mealsService.onMealsChanges()
       .subscribe((meals: Array<Meal>) => this.meals = meals);

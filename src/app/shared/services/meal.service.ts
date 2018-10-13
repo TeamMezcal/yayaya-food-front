@@ -11,7 +11,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 })
 export class MealsService extends BaseApiService {
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
-  private static readonly MEALS_API = `/meals`;
+  private static readonly MEALS_API = `${BaseApiService.BASE_API}/meals`;
 
   private meals: Array <Meal> = [];
   private mealsSubject: Subject <Array<Meal>> = new Subject();
@@ -21,6 +21,7 @@ export class MealsService extends BaseApiService {
   }
 
   list(userId: string): Observable <Array<Meal> | ApiError > {
+    console.log("user id ------->", userId)
     return this.http.get<Array<Meal>>(`${MealsService.USER_API}/${userId}${MealsService.MEALS_API}`, BaseApiService.defaultOptions)
       .pipe(
         map((meals: Array<Meal>) => {
@@ -31,6 +32,21 @@ export class MealsService extends BaseApiService {
         }),
         catchError(this.handleError)
       );
+  }
+
+  listAllMeals(): Observable <Array<Meal> | ApiError > {
+    console.log("ENTRO EN LIST ALL MEALS DEL SERVICIO")
+    return this.http.get<Array<Meal>>(`${MealsService.MEALS_API}`, BaseApiService.defaultOptions)
+    .pipe(
+      map((meals: Array<Meal>) => {
+        meals = meals.map(meal => Object.assign(new Meal(), meal));
+        this.meals = meals; 
+        this.notifyMealsChanges(); 
+        return meals; 
+      }), 
+      catchError(this.handleError)
+    ); 
+
   }
 
   get(userId: string, id: String): Observable<Meal | ApiError> {

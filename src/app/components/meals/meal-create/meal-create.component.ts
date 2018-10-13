@@ -5,8 +5,8 @@ import { Meal } from './../../../shared/models/meal.model';
 import { MealsService } from '../../../shared/services/meal.service';
 
 @Component({
-  selector: 'app-post-create',
-  templateUrl: './post-create.component.html'
+  selector: 'app-meal-create',
+  templateUrl: './meal-create.component.html'
 })
 export class MealCreateComponent implements OnInit {
   @ViewChild(MealFormComponent) mealFormComponent: MealFormComponent;
