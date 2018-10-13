@@ -1,4 +1,4 @@
-import { MealCreateComponent } from './../meal-create/';
+import { MealFormComponent } from './../meal-form/meal-form.component';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Meal } from './../../../shared/models/meal.model';
@@ -14,21 +14,21 @@ export class MealCreateComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
-    private mealService: MealService) { }
+    private mealService: MealsService) { }
 
   
   ngOnInit() {
     this.routes.params.subscribe(params => this.userId = params.userId);
   }
 
-  onSubmitCreatePostForm(post: Post): void {
-    this.postService.create(this.userId, post)
-      .subscribe((post: Post) => {
-        this.postFormComponent.reset();
+  onSubmitCreatePostForm(meal: Meal): void {
+    this.mealService.create(this.userId, meal)
+      .subscribe((meal: Meal) => {
+        this.mealFormComponent.reset();
       });
   }
 
   canDeactivate(): boolean {
-    return this.postFormComponent.canDeactivate();
+    return this.mealFormComponent.canDeactivate();
   }
 }
