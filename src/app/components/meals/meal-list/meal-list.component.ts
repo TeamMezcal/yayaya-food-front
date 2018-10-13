@@ -27,15 +27,15 @@ export class MealListComponent implements OnInit, OnDestroy {
     ).subscribe((meals: Array<Meal>) => this.meals = meals);
 
     this.onMealsChangesSubscription = this.mealsService.onMealsChanges()
-      .subscribe((posts: Array<Meal>) => this.meals = meals);
+      .subscribe((meals: Array<Meal>) => this.meals = meals);
   }
 
   ngOnDestroy() {
     this.onMealsChangesSubscription.unsubscribe();
   }
 
-  canDeactivate(): boolean {
-    return this.mealCreateComponent.canDeactivate();
-  }
+  // canDeactivate(): boolean {
+  //   return this.mealCreateComponent.canDeactivate();
+  // }
 
 }
