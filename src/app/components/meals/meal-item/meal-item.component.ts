@@ -5,7 +5,7 @@ import { Meal } from './../../../shared/models/meal.model';
 import { User } from './../../../shared/models/user.model';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { MealService } from './../../../shared/services/meal.service'
+import { MealsService } from './../../../shared/services/meal.service'
 
 
 @Component({
@@ -13,7 +13,7 @@ import { MealService } from './../../../shared/services/meal.service'
   templateUrl: './post-item.component.html',
   styleUrls: ['./post-item.component.css']
 })
-export class PostItemComponent implements OnInit, OnDestroy {
+export class MealItemComponent implements OnInit, OnDestroy {
   @Input() post: Meal = new Meal();
   authUser: User = new User();
   onAuthUserChanges: Subscription;
@@ -21,7 +21,7 @@ export class PostItemComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private sessionService: SessionService,
-    private postService: PostService) { }
+    private mealService: MealsService) { }
 
   ngOnInit() {
     this.authUser = this.sessionService.user;
@@ -34,9 +34,9 @@ export class PostItemComponent implements OnInit, OnDestroy {
   }
 
 
-  onClickPost() {
-    console.log(this.post);
-    this.router.navigate(['/users', this.post.user, 'posts', this.post.id]);
-  }
+  // onClickPost() {
+  //   console.log(this.post);
+  //   this.router.navigate(['/users', this.meal.user, 'meals', this.meal.id]);
+  // }
 
 }

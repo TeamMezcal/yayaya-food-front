@@ -13,7 +13,7 @@ export class MealsService extends BaseApiService {
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
   private static readonly MEALS_API = `/meals`;
 
-  private meals: Array <Meals> = [];
+  private meals: Array <Meal> = [];
   private mealsSubject: Subject <Array<Meal>> = new Subject();
 
   constructor(private http: HttpClient) {
@@ -21,7 +21,7 @@ export class MealsService extends BaseApiService {
   }
 
   list(userId: string): Observable <Array<Meal> | ApiError > {
-    return this.http.get<Array<Meal>>(`${MealService.USER_API}/${userId}${MealService.MEAL_API}`, BaseApiService.defaultOptions)
+    return this.http.get<Array<Meal>>(`${MealsService.USER_API}/${userId}${MealsService.MEALS_API}`, BaseApiService.defaultOptions)
       .pipe(
         map((meals: Array<Meal>) => {
           meals = meals.map(meal => Object.assign(new Meal(), meal));
@@ -34,14 +34,14 @@ export class MealsService extends BaseApiService {
   }
 
   get(userId: string, id: String): Observable<Meal | ApiError> {
-    return this.http.get<Meal>(`${MealService.USER_API}/${userId}${MealsService.MEAL_API}/${id}`, BaseApiService.defaultOptions)
+    return this.http.get<Meal>(`${MealsService.USER_API}/${userId}${MealsService.MEALS_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         map((meal: Meal) => Object.assign(new Meal(), meal)),
         catchError(this.handleError));
   }
 
   create(userId: string, meal: Meal): Observable < Meal | ApiError > {
-    return this.http.post<Meal>(`${MealsService.USER_API}/${userId}${MealsService.MEAL_API}`, meal.asFormData(), { withCredentials: true })
+    return this.http.post<Meal>(`${MealsService.USER_API}/${userId}${MealsService.MEALS_API}`, meal.asFormData(), { withCredentials: true })
       .pipe(
         map((meal: Meal) => {
           meal = Object.assign(new Meal(), meal);
@@ -53,7 +53,7 @@ export class MealsService extends BaseApiService {
   }
 
   delete(userId: string, id: string): Observable < void | ApiError > {
-    return this.http.delete<void>(`${PostService.USER_API}/${userId}${PostService.POST_API}/${id}`, BaseApiService.defaultOptions)
+    return this.http.delete<void>(`${MealsService.USER_API}/${userId}${MealsService.MEALS_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         tap(() => {
           this.meals = this.meals.filter(u => u.id !== id);
