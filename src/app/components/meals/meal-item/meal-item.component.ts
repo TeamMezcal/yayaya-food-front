@@ -14,14 +14,14 @@ import { MealsService } from './../../../shared/services/meal.service'
   styleUrls: ['./post-item.component.css']
 })
 export class MealItemComponent implements OnInit, OnDestroy {
-  @Input() post: Meal = new Meal();
+  @Input() meal: Meal = new Meal();
   authUser: User = new User();
   onAuthUserChanges: Subscription;
 
   constructor(
     private router: Router,
     private sessionService: SessionService,
-    private mealService: MealsService) { }
+    private mealsService: MealsService) { }
 
   ngOnInit() {
     this.authUser = this.sessionService.user;
@@ -34,9 +34,9 @@ export class MealItemComponent implements OnInit, OnDestroy {
   }
 
 
-  // onClickPost() {
-  //   console.log(this.post);
-  //   this.router.navigate(['/users', this.meal.user, 'meals', this.meal.id]);
-  // }
+  onClickPost() {
+    console.log(this.meal);
+    this.router.navigate(['/users', this.meal.user, 'meals', this.meal.id]);
+  }
 
 }
