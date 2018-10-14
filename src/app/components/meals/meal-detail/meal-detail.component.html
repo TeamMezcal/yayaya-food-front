@@ -1,9 +1,60 @@
-<div class="card mb-3">
-    <img class="card-img-top" src="#" alt="Card image cap">
+<div class="card mb-3 shadow p-3 ">
+    <div *ngFor="let image of meal.images" >
+      <img class="card-img-top" [src]="image" alt="Card image cap">
+    </div>
     <div class="card-body">
-      <h5 class="card-title">{{ meal.name }}</h5>
+      <h3 class="card-title">{{ meal.name }}</h3>
       <p class="card-text"> {{ meal.description}}</p>
+      <p>{{meal.rating}}</p>
       <p class="card-text"><small class="text-muted">${{meal.price}}</small></p>
     </div>
-  </div>
+</div>
 
+ <div class="card bg-dark text-white"> 
+    <div *ngFor="let image of meal.images" >
+        <img class="card-img-top" [src]="image" alt="Card image cap">
+      </div>
+    <div class="card-img-overlay">
+      <h3 class="card-text">{{ meal.name }}</h3>
+  </div>  
+ </div> 
+
+
+
+  <div class="jumbotron jumbotron-fluid ">
+      <div *ngFor="let image of meal.images" >
+          <img class="card-img-top" [src]="image" alt="Card image cap">
+        </div>
+      <div class="container shadow p-3  ">
+        <h1 class="display-4">{{meal.name}}</h1>
+        <hr class="my-4">
+        <p class="lead">{{meal.description}}</p>
+        <span *ngFor="let tag of meal.tags" class="badge badge-info">{{tag}}</span>
+      </div>
+    </div>
+
+    
+    <div class="fixed-bottom shadow-lg p-2 ">
+    
+      <button type="button" class="btn-lg btn-block color-blue radius20 ">
+          <i class="fa fa-shopping-cart" aria-hidden="true">
+          </i>
+          FEED ME THIS NOW!
+      </button>
+    </div>
+
+
+
+
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Ingredients
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
