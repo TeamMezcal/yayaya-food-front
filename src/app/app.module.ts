@@ -12,6 +12,9 @@ import { MealItemComponent } from './components/meals/meal-item/meal-item.compon
 import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { MealCreateComponent } from './components/meals/meal-create/meal-create.component';
+import { MealFormComponent } from './components/meals/meal-form/meal-form.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     MealListComponent,
     MealDetailComponent,
     ReviewsComponent
+    MealCreateComponent,
+    MealFormComponent
   ],
   imports: [
     BrowserModule,

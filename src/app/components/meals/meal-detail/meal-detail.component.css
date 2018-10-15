@@ -1,0 +1,14 @@
+.color-blue {
+  background: #0accff;
+  color:#ffff;
+}
+
+.radius20 {
+      border-radius: 20px ;
+      box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.75);
+
+}
+
+.badge {
+  margin: 1px; 
+}
