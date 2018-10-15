@@ -1,3 +1,4 @@
+import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.component';
 import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'register', canActivate:[IsNotAuthGuard] ,component: RegisterComponent},
   //{path: 'login/register', redirectTo: "register"},
   {path: 'mealsList', canActivate: [IsauthGuard], component: MealListComponent},
+  {path: 'meals/:id', canActivate: [IsauthGuard], component: MealDetailComponent},
 ];
 
 @NgModule({

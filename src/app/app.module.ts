@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MealItemComponent } from './components/meals/meal-item/meal-item.component';
 import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.component';
+import { MealCreateComponent } from './components/meals/meal-create/meal-create.component';
+import { MealFormComponent } from './components/meals/meal-form/meal-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.
     LoginComponent,
     MealItemComponent,
     MealListComponent,
-    MealDetailComponent
+    MealDetailComponent,
+    MealCreateComponent,
+    MealFormComponent
   ],
   imports: [
     BrowserModule,
