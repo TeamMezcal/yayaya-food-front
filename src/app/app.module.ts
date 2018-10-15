@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MealItemComponent } from './components/meals/meal-item/meal-item.component';
 import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.component';
-import { ReviewsComponent } from './reviews/reviews.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
