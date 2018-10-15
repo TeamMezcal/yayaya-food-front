@@ -43,8 +43,7 @@
       </button>
     </div>
 
-    <h3   ">Reviews</h3>
-
+    <h3 [routerLink]="['/meals']">Reviews</h3>
 
 
 
@@ -68,4 +67,4 @@
 
     
 
-    <app-reviews *ngFor="let review of reviews"></app-reviews>
+    <app-review *ngFor="let review of reviews"></app-review>
