@@ -6,6 +6,7 @@ import { LoginComponent } from './components/misc/login/login.component';
 import { RegisterComponent } from './components/misc/register/register.component';
 import { IsauthGuard } from './shared/guards/isauth.guard';
 import { IsNotAuthGuard } from './shared/guards/is-not-auth.guard';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "login", pathMatch:"full"},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'register', canActivate:[IsNotAuthGuard] ,component: RegisterComponent},
   //{path: 'login/register', redirectTo: "register"},
   {path: 'mealsList', canActivate: [IsauthGuard], component: MealListComponent},
+  {path: 'reviews', canActivate: [IsauthGuard], component: ReviewsComponent},
   {path: 'meals/:id', canActivate: [IsauthGuard], component: MealDetailComponent},
 ];
 
