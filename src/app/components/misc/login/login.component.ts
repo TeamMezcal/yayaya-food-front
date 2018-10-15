@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.sessionService.login(this.user).subscribe((user: User) => {
         console.log('dads');
         
-        this.router.navigate(['/mealsList']);
+        this.router.navigate(['/meals']);
       },
       (error: any) =>{
         this.myError = error;

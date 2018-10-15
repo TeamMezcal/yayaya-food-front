@@ -26,7 +26,7 @@ import { MealFormComponent } from './components/meals/meal-form/meal-form.compon
     MealItemComponent,
     MealListComponent,
     MealDetailComponent,
-    ReviewsComponent
+    ReviewsComponent,
     MealCreateComponent,
     MealFormComponent
   ],

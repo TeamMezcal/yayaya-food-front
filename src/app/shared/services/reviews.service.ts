@@ -13,7 +13,8 @@ import { catchError, tap, map } from 'rxjs/operators';
 })
 export class ReviewsService extends BaseApiService {
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
-  private static readonly REVIEWS_API = `/reviews`;
+  private static readonly REVIEWS_API = `reviews`;
+  private static readonly MEALS_API = `${BaseApiService.BASE_API}/meals`;
 
   private reviews: Array <Review> = [];
   private reviewsSubject: Subject <Array<Review>> = new Subject();
@@ -22,8 +23,8 @@ export class ReviewsService extends BaseApiService {
     super();
   }
 
-  list(userId: string): Observable <Array<Review> | ApiError > {
-    return this.http.get<Array<Review>>(`${ReviewsService.USER_API}/${userId}${ReviewsService.REVIEWS_API}`, BaseApiService.defaultOptions)
+  list(mealId: string): Observable <Array<Review> | ApiError > {
+    return this.http.get<Array<Review>>(`${ReviewsService.MEALS_API}/${mealId}/${ReviewsService.REVIEWS_API}`, BaseApiService.defaultOptions)
       .pipe(
         map((reviews: Array<Review>) => {
           reviews = reviews.map(review => Object.assign(new Review(), review));
@@ -35,8 +36,8 @@ export class ReviewsService extends BaseApiService {
       );
   }
 
-  get(userId: string, id: String): Observable<Review | ApiError> {
-    return this.http.get<Review>(`${ReviewsService.USER_API}/${userId}${ReviewsService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
+  get(mealId: string, id: String): Observable<Review | ApiError> {
+    return this.http.get<Review>(`${ReviewsService.USER_API}/${mealId}${ReviewsService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         map((review: Review) => Object.assign(new Review(), review)),
         catchError(this.handleError));

@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'login', canActivate:[IsNotAuthGuard] ,component: LoginComponent},
   {path: 'register', canActivate:[IsNotAuthGuard] ,component: RegisterComponent},
   //{path: 'login/register', redirectTo: "register"},
-  {path: 'mealsList', canActivate: [IsauthGuard], component: MealListComponent},
-  {path: 'reviews', canActivate: [IsauthGuard], component: ReviewsComponent},
+  {path: 'meals', canActivate: [IsauthGuard], component: MealListComponent},
+  {path: 'meals/:id/reviews', canActivate: [IsauthGuard], component: ReviewsComponent},
   {path: 'meals/:id', canActivate: [IsauthGuard], component: MealDetailComponent},
 ];
 
