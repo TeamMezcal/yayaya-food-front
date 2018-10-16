@@ -21,7 +21,7 @@ export class ReviewListComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private mealService: MealService,
+  //  private mealService: MealService,
     private reviewService: ReviewService) { }
 
   ngOnInit() {
