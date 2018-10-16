@@ -18,7 +18,7 @@ export class IsNotAuthGuard implements CanActivate {
         return true;
       } else{
         console.log('you are already logged - staying here');
-        this.router.navigate(['mealsList']);
+        this.router.navigate(['meals']);
       }
   }
 }
