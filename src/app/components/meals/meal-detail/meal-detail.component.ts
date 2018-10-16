@@ -1,7 +1,7 @@
 import { Meal } from './../../../shared/models/meal.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MealsService } from 'src/app/shared/services/meal.service';
+import { MealService } from 'src/app/shared/services/meal.service';
 import { map, switchMap } from 'rxjs/operators';
 
 
@@ -13,7 +13,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class MealDetailComponent implements OnInit {
   meal: Meal = new Meal();
   constructor(
-    private mealsService: MealsService, 
+    private mealsService: MealService, 
     private route: ActivatedRoute
   ) { }
 

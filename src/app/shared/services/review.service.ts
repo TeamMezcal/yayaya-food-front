@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
+import { Meal } from './../models/meal.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +36,7 @@ export class ReviewService extends BaseApiService {
   }
 
   // get(mealId: string, id: String): Observable<Review | ApiError> {
-  //   return this.http.get<Review>(`${ReviewService.USER_API}/${mealId}${ReviewService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
+  //   return this.http.get<Review>(`${ReviewService.MEAL_API}/${mealId}${ReviewService.REVIEWS_API}/`, BaseApiService.defaultOptions)
   //     .pipe(
   //       map((review: Review) => Object.assign(new Review(), review)),
   //       catchError(this.handleError));

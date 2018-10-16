@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { SessionService } from '../../../shared/services/session.service';
+import { MealService } from '../../../shared/services/meal.service';
 import { Meal } from '../../../shared/models/meal.model';
 import { User } from '../../../shared/models/user.model';
 import { Review } from '../../../shared/models/review.model';
@@ -14,24 +14,24 @@ import { ReviewService } from '../../../shared/services/review.service'
   templateUrl: './review-item.component.html',
   styleUrls: ['./review-item.component.css']
 })
-export class ReviewComponent implements OnInit, OnDestroy {
+export class ReviewItemComponent implements OnInit, OnDestroy {
   @Input() review: Review = new Review();
-  authUser: User = new User();
-  onAuthUserChanges: Subscription;
+  reviewedMeal: Meal = new Meal();
+  onMealChanges: Subscription;
 
   constructor(
     private router: Router,
-    private sessionService: SessionService,
+    private mealService: MealService,
     private reviewService: ReviewService) { }
 
   ngOnInit() {
-    this.authUser = this.sessionService.user;
-    this.onAuthUserChanges = this.sessionService.onUserChanges()
-      .subscribe((user: User) => this.authUser = user);
+    // this.reviewedMeal = this.reviewService.meal;
+    // this.onReviewsChanges = this.reviewService.onReviewsChanges()
+    //   .subscribe((review: Review) => this.review = review);
   }
 
   ngOnDestroy() {
-    this.onAuthUserChanges.unsubscribe();
+    this.onMealChanges.unsubscribe();
   }
 
 

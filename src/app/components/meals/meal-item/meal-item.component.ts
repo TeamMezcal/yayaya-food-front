@@ -5,7 +5,7 @@ import { Meal } from './../../../shared/models/meal.model';
 import { User } from './../../../shared/models/user.model';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { MealsService } from './../../../shared/services/meal.service'
+import { MealService } from './../../../shared/services/meal.service'
 
 
 @Component({
@@ -21,7 +21,7 @@ export class MealItemComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private sessionService: SessionService,
-    private mealsService: MealsService) { }
+    private mealService: MealService) { }
 
   ngOnInit() {
     this.authUser = this.sessionService.user;
