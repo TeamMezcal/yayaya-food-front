@@ -1,5 +1,5 @@
 import { MealCreateComponent } from './../meal-create/meal-create.component';
-import { MealsService } from './../../../shared/services/meal.service';
+import { MealService } from './../../../shared/services/meal.service';
 import { Meal } from './../../../shared/models/meal.model';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +18,7 @@ export class MealListComponent implements OnInit, OnDestroy {
 
   // private route: ActivatedRoute;
   // private mealsService: MealsService;
-  constructor(private route: ActivatedRoute, private mealsService: MealsService) {
+  constructor(private route: ActivatedRoute, private mealService: MealService) {
     // this.route = route;
     // this.mealsService = mealsService
   }
@@ -32,7 +32,7 @@ export class MealListComponent implements OnInit, OnDestroy {
     //   switchMap(userId => this.mealsService.list(userId))
     // ).subscribe((meals: Array<Meal>) => this.meals = meals);
 
-    this.mealsService.listAllMeals()
+    this.mealService.listAllMeals()
       .subscribe((meals: Array<Meal>) => {
         let reversedMeals = meals.reverse();
         this.meals = reversedMeals
@@ -40,7 +40,7 @@ export class MealListComponent implements OnInit, OnDestroy {
    
 
 
-    this.onMealsChangesSubscription = this.mealsService.onMealsChanges()
+    this.onMealsChangesSubscription = this.mealService.onMealChanges()
       .subscribe((meals: Array<Meal>) => this.meals = meals);
   }
 

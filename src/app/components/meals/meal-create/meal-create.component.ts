@@ -2,7 +2,7 @@ import { MealFormComponent } from './../meal-form/meal-form.component';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Meal } from './../../../shared/models/meal.model';
-import { MealsService } from '../../../shared/services/meal.service';
+import { MealService } from '../../../shared/services/meal.service';
 
 @Component({
   selector: 'app-meal-create',
@@ -14,7 +14,7 @@ export class MealCreateComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
-    private mealService: MealsService) { }
+    private mealService: MealService) { }
 
   
   ngOnInit() {

@@ -11,9 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MealItemComponent } from './components/meals/meal-item/meal-item.component';
 import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MealCreateComponent } from './components/meals/meal-create/meal-create.component';
 import { MealFormComponent } from './components/meals/meal-form/meal-form.component';
+import { ReviewFormComponent } from './components/reviews/review-form/review-form.component';
+import { ReviewListComponent } from './components/reviews/review-list/review-list.component'; 
+import { ReviewItemComponent} from './components/reviews/review-item/review-item.component';
+import { ReviewCreateComponent} from './components/reviews/review-create/review-create.component'
+
 
 
 @NgModule({
@@ -26,9 +30,12 @@ import { MealFormComponent } from './components/meals/meal-form/meal-form.compon
     MealItemComponent,
     MealListComponent,
     MealDetailComponent,
-    ReviewsComponent
+    ReviewListComponent,
     MealCreateComponent,
-    MealFormComponent
+    MealFormComponent,
+    ReviewFormComponent,
+    ReviewItemComponent,
+    ReviewCreateComponent
   ],
   imports: [
     BrowserModule,
