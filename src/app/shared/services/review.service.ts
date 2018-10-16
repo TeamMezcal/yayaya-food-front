@@ -11,7 +11,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ReviewsService extends BaseApiService {
+export class ReviewService extends BaseApiService {
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
   private static readonly REVIEWS_API = `/reviews`;
 
@@ -23,7 +23,7 @@ export class ReviewsService extends BaseApiService {
   }
 
   list(userId: string): Observable <Array<Review> | ApiError > {
-    return this.http.get<Array<Review>>(`${ReviewsService.USER_API}/${userId}${ReviewsService.REVIEWS_API}`, BaseApiService.defaultOptions)
+    return this.http.get<Array<Review>>(`${ReviewService.USER_API}/${userId}${ReviewService.REVIEWS_API}`, BaseApiService.defaultOptions)
       .pipe(
         map((reviews: Array<Review>) => {
           reviews = reviews.map(review => Object.assign(new Review(), review));
@@ -36,14 +36,14 @@ export class ReviewsService extends BaseApiService {
   }
 
   get(userId: string, id: String): Observable<Review | ApiError> {
-    return this.http.get<Review>(`${ReviewsService.USER_API}/${userId}${ReviewsService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
+    return this.http.get<Review>(`${ReviewService.USER_API}/${userId}${ReviewService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         map((review: Review) => Object.assign(new Review(), review)),
         catchError(this.handleError));
   }
 
   create(userId: string, review: Review): Observable < Review | ApiError > {
-    return this.http.post<Review>(`${ReviewsService.USER_API}/${userId}${ReviewsService.REVIEWS_API}`, review, { withCredentials: true })
+    return this.http.post<Review>(`${ReviewService.USER_API}/${userId}${ReviewService.REVIEWS_API}`, review, { withCredentials: true })
       .pipe(
         map((meal: Meal) => {
           review = Object.assign(new Review(), review);
@@ -55,7 +55,7 @@ export class ReviewsService extends BaseApiService {
   }
 
   delete(userId: string, id: string): Observable < void | ApiError > {
-    return this.http.delete<void>(`${ReviewsService.USER_API}/${userId}${ReviewsService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
+    return this.http.delete<void>(`${ReviewService.USER_API}/${userId}${ReviewService.REVIEWS_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         tap(() => {
           this.reviews = this.reviews.filter(u => u.id !== id);

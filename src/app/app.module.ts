@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MealItemComponent } from './components/meals/meal-item/meal-item.component';
 import { MealListComponent } from './components/meals/meal-list/meal-list.component';
 import { MealDetailComponent } from './components/meals/meal-detail/meal-detail.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewComponent } from './components/reviews/review-item/review-item.component';
 import { MealCreateComponent } from './components/meals/meal-create/meal-create.component';
 import { MealFormComponent } from './components/meals/meal-form/meal-form.component';
 
@@ -26,7 +26,7 @@ import { MealFormComponent } from './components/meals/meal-form/meal-form.compon
     MealItemComponent,
     MealListComponent,
     MealDetailComponent,
-    ReviewsComponent
+    ReviewComponent,
     MealCreateComponent,
     MealFormComponent
   ],
