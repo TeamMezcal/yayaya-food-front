@@ -21,15 +21,15 @@ export class ReviewListComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-  //  private mealService: MealService,
+    //private mealService: MealService,
     private reviewService: ReviewService) { }
 
   ngOnInit() {
 
-  this.route.params.pipe(
-    map(params=> params.mealId),
-    switchMap(mealId=> this.reviewService.list(mealId))
-  ).subscribe((reviews : Array<Review>)=>this.reviews = reviews);
+    this.route.params.pipe(
+    map(params => params.id),
+    switchMap(id => this.reviewService.list(id))
+  ).subscribe((reviews : Array<Review>) => this.reviews = reviews);
 
   this.onReviewChangesSubscription = this.reviewService.onReviewsChanges()
   .subscribe((reviews: Array<Review>)=> this.reviews = reviews);
