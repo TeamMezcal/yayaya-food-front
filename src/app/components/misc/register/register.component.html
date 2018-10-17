@@ -2,7 +2,11 @@
 
 <form (ngSubmit)="onClickRegisterLogin()" #formRegister="ngForm">
   <h3>Register</h3>
-    <div class="form-group">
+  <div class="form-group">
+      <label for="exampleDropdownFormPassword2">Name</label>
+      <input class="form-control" id="exampleDropdownFormPassword2" name="name" placeholder="Name" [(ngModel)]="user.name" #password="ngModel" required autocomplete>
+  </div>
+  <div class="form-group">
       <label for="exampleDropdownFormEmail2">Email address</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required autocomplete>
     </div>
@@ -13,7 +17,6 @@
     <br>
     <a class="btn btn-secondary btn-block" [routerLink]="['/login']">Login</a>
     <br>
-    <p> - or - </p>
     <button type="submit" [disabled]="!formRegister.valid" class="btn btn-success btn-block">Register</button>
   </form>
 

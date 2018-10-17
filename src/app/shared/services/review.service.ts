@@ -28,7 +28,7 @@ export class ReviewService extends BaseApiService {
       .pipe(
         map((reviews: Array<Review>) => {
 
-          //console.log(reviews)
+          console.log(reviews)
           reviews = reviews.map(review => Object.assign(new Review(), review));
           this.reviews = reviews;
           this.notifyReviewsChanges();
