@@ -15,6 +15,7 @@ export class Review {
 
     data.append('title', this.title);
     data.append('content', this.content);
+   //data.append('User', this.user)
     //data.append(rating: Number, this.rating);
     
     // for (const tag of this.tags) {
