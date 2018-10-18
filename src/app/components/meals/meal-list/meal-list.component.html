@@ -7,4 +7,11 @@
   </div>
   <ul class="nav nav-pills nav-justified shadow mb-3">
 
-<app-meal-item *ngFor="let meal of meals" [meal]="meal"></app-meal-item>
+<app-meal-item *ngFor="let meal of meals" | category  [meal]="meal"></app-meal-item>
+
+
+<div *ngIf="meal.location">
+  <agm-map [zoom]="15" [latitude]="meal.location[0]" [longitude]="meal.location[1]">
+      <agm-marker [latitude]="meal.location[0]" [longitude]="meal.location[1]"></agm-marker>
+  </agm-map>
+</div> 
