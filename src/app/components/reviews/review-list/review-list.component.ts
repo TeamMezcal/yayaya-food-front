@@ -33,7 +33,6 @@ export class ReviewListComponent implements OnInit, OnDestroy {
 
   this.onReviewChangesSubscription = this.reviewService.onReviewsChanges()
   .subscribe((reviews: Array<Review>)=> this.reviews = reviews);
-  console.log(this.reviews)
   }
 
   ngOnDestroy() {

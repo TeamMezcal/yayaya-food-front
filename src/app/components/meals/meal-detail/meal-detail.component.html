@@ -5,11 +5,11 @@
     </button>
   </div>
 
-  <div class="jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid">
       <div *ngFor="let image of meal.images">
           <img class="card-img-top" [src]="image" alt="Card image cap">
         </div>
-      <div class="container shadow p-3  ">
+      <div class="container">
         <h1 class="display-4">{{meal.name}}</h1>
         <hr class="my-4">
         <p class="lead">{{meal.description}}</p>
@@ -18,33 +18,27 @@
     </div>
 
     <br>
-
-
-    
-
-
     <br>
-    <div class="card" style="width: 18rem;">
+    <div class="card shadow" style="width: 18rem;">
         <div class="card-header">
           Ingredients
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+        <ul *ngFor="let ingredient of meal.ingredients" class="list-group list-group-flush">
+          <li class="list-group-item" >{{ingredient}}</li>
         </ul>
       </div>
 
+      <br>
+
       <div class="fixed-bottom shadow-lg p-2">
-          <button type="button" class="btn-lg btn-block color-blue radius20 ">
+          <button type="button" class="btn-lg btn-block color-blue radius20" [routerLink]="['/success']" >
               <i class="fa fa-shopping-cart" aria-hidden="true">
               </i>
               FEED ME THIS NOW!
           </button>
       </div>
 
-
-      <div class="card">
+      <div class="card shadow">
           <h5 class="card-header">Reviews</h5>
           <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>

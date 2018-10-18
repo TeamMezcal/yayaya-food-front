@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/misc/register/register.component
 import { IsauthGuard } from './shared/guards/isauth.guard';
 import { IsNotAuthGuard } from './shared/guards/is-not-auth.guard';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
+import { SuccessComponent } from './components/misc/success/success.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "login", pathMatch:"full"},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'meals', canActivate: [IsauthGuard], component: MealListComponent},
   {path: 'meals/:id/reviews', canActivate: [IsauthGuard], component: ReviewListComponent},
   {path: 'meals/:id', canActivate: [IsauthGuard], component: MealDetailComponent},
+  {path: 'success', canActivate: [IsauthGuard], component: SuccessComponent},
 ];
 
 @NgModule({
