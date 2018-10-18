@@ -31,9 +31,9 @@ export class ReviewListComponent implements OnInit, OnDestroy {
     switchMap(mealId => this.reviewService.list(mealId))
   ).subscribe((reviews : Array<Review>) => this.reviews = reviews);
 
+
   this.onReviewChangesSubscription = this.reviewService.onReviewsChanges()
   .subscribe((reviews: Array<Review>)=> this.reviews = reviews);
-  console.log(this.reviews)
   }
 
   ngOnDestroy() {

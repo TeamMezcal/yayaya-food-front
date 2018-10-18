@@ -16,7 +16,9 @@ import { MealFormComponent } from './components/meals/meal-form/meal-form.compon
 import { ReviewFormComponent } from './components/reviews/review-form/review-form.component';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component'; 
 import { ReviewItemComponent} from './components/reviews/review-item/review-item.component';
-import { ReviewCreateComponent} from './components/reviews/review-create/review-create.component'
+import { ReviewCreateComponent} from './components/reviews/review-create/review-create.component';
+import { PriceFilterPipe } from './shared/pipes/price-filter.pipe';
+import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
 
 
 
@@ -35,7 +37,9 @@ import { ReviewCreateComponent} from './components/reviews/review-create/review-
     MealFormComponent,
     ReviewFormComponent,
     ReviewItemComponent,
-    ReviewCreateComponent
+    ReviewCreateComponent,
+    PriceFilterPipe,
+    TagsFilterPipe
   ],
   imports: [
     BrowserModule,
