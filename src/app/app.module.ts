@@ -28,6 +28,9 @@ import { MapsViewComponent } from './components/misc/maps-view/maps-view.compone
 
 // Import your library
 import { OwlModule } from 'ngx-owl-carousel';
+import { MealsListHeaderComponent } from './components/meals-list-header/meals-list-header.component';
+import { MapButtonComponent } from './components/misc/map-button/map-button.component';
+import { ListButtonComponent } from './components/misc/list-button/list-button.component';
 
 
 
@@ -52,7 +55,10 @@ import { OwlModule } from 'ngx-owl-carousel';
     SuccessComponent,
     PriceFilterPipe,
     TagsFilterPipe,
-    MapsViewComponent
+    MapsViewComponent,
+    MealsListHeaderComponent,
+    MapButtonComponent,
+    ListButtonComponent
 
   ],
   imports: [
