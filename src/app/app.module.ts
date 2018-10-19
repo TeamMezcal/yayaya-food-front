@@ -22,6 +22,10 @@ import { PriceFilterPipe } from './shared/pipes/price-filter.pipe';
 import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
 
 
+import { AgmCoreModule } from '@agm/core';
+
+
+
 
 
 @NgModule({
@@ -49,7 +53,12 @@ import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyAQk1fogZPukis0Aq-cEmt5Detd0CQHPvk",
+      libraries: ['places']
+
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
