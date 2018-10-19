@@ -13,9 +13,7 @@
     <br>
     <button type="submit" [disabled]="!form.valid" class="btn btn-success btn-block">Login</button>
     <br>
-    <p> - or - </p>
     <a class="btn btn-secondary btn-block" [routerLink]="['/register']">Register</a>
-    <!-- <button class="btn btn-secondary" [routerLink]="['register']">Register</button>  -->
   </form>
 
   errors: {{myError | json}}
