@@ -23,6 +23,11 @@ import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
 
 
 import { AgmCoreModule } from '@agm/core';
+import { MapsViewComponent } from './components/misc/maps-view/maps-view.component';
+
+
+// Import your library
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 
@@ -46,7 +51,8 @@ import { AgmCoreModule } from '@agm/core';
     ReviewCreateComponent,
     SuccessComponent,
     PriceFilterPipe,
-    TagsFilterPipe
+    TagsFilterPipe,
+    MapsViewComponent
 
   ],
   imports: [
@@ -54,6 +60,7 @@ import { AgmCoreModule } from '@agm/core';
     AppRoutingModule, 
     FormsModule,
     HttpClientModule,
+    OwlModule,
     AgmCoreModule.forRoot({
       apiKey:"AIzaSyAQk1fogZPukis0Aq-cEmt5Detd0CQHPvk",
       libraries: ['places']

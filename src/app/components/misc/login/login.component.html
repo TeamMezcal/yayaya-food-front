@@ -11,9 +11,9 @@
       <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required>
     </div>
     <br>
-    <button type="submit" [disabled]="!form.valid" class="btn btn-success btn-block">Login</button>
+    <button type="submit" [disabled]="!form.valid" class="btn shadow mb-3 p-2 color-blue radius20">Login</button>
     <br>
-    <a class="btn btn-secondary btn-block" [routerLink]="['/register']">Register</a>
+    <a class="btn shadow mb-3 p-2 color-gray radius20" [routerLink]="['/register']">Register</a>
   </form>
 
   errors: {{myError | json}}
