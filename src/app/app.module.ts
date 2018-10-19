@@ -16,7 +16,15 @@ import { MealFormComponent } from './components/meals/meal-form/meal-form.compon
 import { ReviewFormComponent } from './components/reviews/review-form/review-form.component';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component'; 
 import { ReviewItemComponent} from './components/reviews/review-item/review-item.component';
-import { ReviewCreateComponent} from './components/reviews/review-create/review-create.component'
+import { ReviewCreateComponent} from './components/reviews/review-create/review-create.component';
+import { SuccessComponent } from './components/misc/success/success.component';
+import { PriceFilterPipe } from './shared/pipes/price-filter.pipe';
+import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
+
+
+import { AgmCoreModule } from '@agm/core';
+
+
 
 
 
@@ -35,13 +43,22 @@ import { ReviewCreateComponent} from './components/reviews/review-create/review-
     MealFormComponent,
     ReviewFormComponent,
     ReviewItemComponent,
-    ReviewCreateComponent
+    ReviewCreateComponent,
+    SuccessComponent,
+    PriceFilterPipe,
+    TagsFilterPipe
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyAQk1fogZPukis0Aq-cEmt5Detd0CQHPvk",
+      libraries: ['places']
+
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,17 @@
-<h3>Home-made Meals Around You</h3>
-<ul class="nav nav-pills nav-justified shadow mb-3">
-  <li><button class="btn-lg btn-block color-blue radius20" href="#">Newest</button></li>
-  
-  <li><a class="btn btn-lg" href="#">Popular</a></li>
-  <li><a class="btn btn-lg" href="#">Closest</a></li>
-</ul>
+<h4> Delicious Home Meals Around You</h4>
+<br>
+<div class="row align-items-center shadow mb-3">
+    <div class="col-4 col-md-4 bar"><a class="btn" href="#">All</a></div>
+    <div class="col-4 col-md-4 bar"><a class="btn" href="#">New</a></div>
+    <div class="col-4 col-md-4 bar"><a class="btn" href="#">Popular</a></div>
+  </div>
+  <ul class="nav nav-pills nav-justified shadow mb-3"></ul>
+<div>
+  <agm-map [zoom]='10' [latitude]="40" [longitude]="-3"  > </agm-map>
+</div>
+<app-meal-item *ngFor="let meal of meals" ></app-meal-item>
 
-<app-meal-item *ngFor="let meal of meals" [meal]="meal"></app-meal-item>
+
+
+  
+

@@ -4,7 +4,7 @@ import { BaseApiService } from './base-api.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map, switchMap } from 'rxjs/operators';
 import { Meal } from './../models/meal.model';
 
 
@@ -23,11 +23,15 @@ export class ReviewService extends BaseApiService {
   }
 
   list(mealId: string): Observable <Array<Review> | ApiError > {
+    console.log("HELLLOOOOOOOOOOOO", mealId)
     return this.http.get<Array<Review>>(`${ReviewService.MEAL_API}/${mealId}${ReviewService.REVIEWS_API}`, BaseApiService.defaultOptions)
       .pipe(
         map((reviews: Array<Review>) => {
+          
+          console.log(reviews)
           reviews = reviews.map(review => Object.assign(new Review(), review));
           this.reviews = reviews;
+          
           this.notifyReviewsChanges();
           return reviews;
         }),
