@@ -4,5 +4,9 @@
     <div class="col-4 col-md-4 bar"><a class="btn" href="#">All</a></div>
     <div class="col-4 col-md-4 bar"><a class="btn" href="#">New</a></div>
     <div class="col-4 col-md-4 bar"><a class="btn" href="#">Popular</a></div>
+  </div>
+  <ul class="nav nav-pills nav-justified shadow mb-3"></ul>
+<div>
+  <agm-map [zoom]='10' [latitude]="40" [longitude]="-3"  > </agm-map>
 </div>
-<app-meal-item *ngFor="let meal of meals" [meal]="meal"></app-meal-item>
+<app-meal-item *ngFor="let meal of meals" ></app-meal-item>
