@@ -24,6 +24,12 @@ import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
 
 import { AgmCoreModule } from '@agm/core';
 
+//cloudinary setup :
+import { CloudinaryModule, CloudinaryConfiguration, provideCloudinary,  } from '@cloudinary/angular-5.x';
+import * as  Cloudinary from 'cloudinary-core';
+import { Cloudinarysettings } from './settings/cloudinary.settings';
+import { FileUploadModule} from 'ng2-file-upload'
+
 
 
 
@@ -51,16 +57,18 @@ import { AgmCoreModule } from '@agm/core';
   ],
   imports: [
     BrowserModule,
+    CloudinaryModule,
     AppRoutingModule, 
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey:"AIzaSyAQk1fogZPukis0Aq-cEmt5Detd0CQHPvk",
       libraries: ['places']
+    }),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'yayaya'}),
 
-    })
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
