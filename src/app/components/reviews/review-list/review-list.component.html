@@ -1,5 +1,10 @@
- <!-- <app-review-list>Review list works!</app-review-list>  -->
-
-hello
-
+<div class="arrow fixed-top">
+    <button type="button" class="btn color-blue radius20" [routerLink]="['/meals']">
+        <i class="fa fa-arrow-left" aria-hidden="true">
+        </i>
+    </button>
+  </div>
+<h2>Reviews</h2>
 <app-review-item *ngFor= "let review of reviews" [review] = "review" ></app-review-item>
+<app-review-form> </app-review-form>
+    

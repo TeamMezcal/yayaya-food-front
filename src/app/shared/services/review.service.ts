@@ -27,12 +27,9 @@ export class ReviewService extends BaseApiService {
     return this.http.get<Array<Review>>(`${ReviewService.MEAL_API}/${mealId}${ReviewService.REVIEWS_API}`, BaseApiService.defaultOptions)
       .pipe(
         map((reviews: Array<Review>) => {
-          
-          console.log(reviews)
-          reviews = reviews.map(review => Object.assign(new Review(), review));
-          this.reviews = reviews;
-          
+          this.reviews = reviews.map(review => Object.assign(new Review(), review));
           this.notifyReviewsChanges();
+
           return reviews;
         }),
         catchError(this.handleError)
