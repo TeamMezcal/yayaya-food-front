@@ -22,7 +22,7 @@ export class MealCreateComponent implements OnInit {
   }
 
   onSubmitCreatePostForm(meal: Meal): void {
-    this.mealService.create(this.userId, meal)
+    this.mealService.create(meal)
       .subscribe((meal: Meal) => {
         this.mealFormComponent.reset();
       });
