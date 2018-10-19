@@ -4,23 +4,28 @@
     <div class="form-group">
       <p><small>*Required fields</small></p>  
         <label for="exampleDropdownFormPassword2">Meal Name*</label>
-        <input class="form-control" id="exampleDropdownFormPassword2" name="name" placeholder="Ex: The Best Home Tortilla in Alicante" [(ngModel)]="user.name" #password="ngModel" required autocomplete>
+        <input class="form-control" id="name" name="name" placeholder="Ex: The Best Home Tortilla in Alicante" [(ngModel)]="meal.name" #password="ngModel" required autocomplete>
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Description*</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write your review here, please madafaka"rows="3"></textarea>
+        <textarea class="form-control" id="description" placeholder="Write your review here, please madafaka"rows="3" [(ngModel)]="meal.description" ></textarea>
       </div>
+
+      <div class ="form-group">
+          <label for="exampleFormControlTextarea1">Price*</label>
       <div class="input-group mb-3">
-          <div class="input-group-prepend">
+            <div class="input-group-prepend">
             <span class="input-group-text">$</span>
-            <span class="input-group-text">0.00</span>
           </div>
           <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span> 
+          </div>
         </div>
-        
+      </div>
       <div class="form-group">
         <label for="exampleDropdownFormPassword2">Ingredients*</label>
-        <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required autocomplete>
+        <input type="password" class="form-control" id="ingredients" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required autocomplete>
       </div>
       <div class="form-group">
             <label for="exampleDropdownFormPassword2">Portions*</label>
@@ -32,11 +37,14 @@
           </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            <label class="custom-file-label" for="inputGroupFile01">Pic of meal</label>
           </div>
-        </div>
-      <br>
+        </div>        
+          <div class="form-group">
+            <label for="sehir">Tags</label>
+            <input type="text" placeholder="Type your tag separeted by a comma" data-role="tagsinput" class="form-control" />
+          </div>
+
       <br>
       <button type="submit" [disabled]="!formRegister.valid" class="btn shadow mb-3 p-2 color-blue radius20">Create Meal</button>
-  
     </form>
