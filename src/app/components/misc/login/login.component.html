@@ -1,22 +1,24 @@
-<div class="container-image">
-  <img src="../../../../assets/images/logo-black.png" alt="">
-</div> 
-  
-  <div class="container fixed-bottom">
-    <form (ngSubmit)="onClickSubmitLogin()" #form="ngForm">
-    <h1 class="title"> Login</h1>
-      <div class="form-group">
-        <label class="body-text" for="exampleDropdownFormEmail2">Email address</label>
-        <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required automcomplete>
-      </div>
-      <div class="form-group">
-        <label for="exampleDropdownFormPassword2">Password</label>
-        <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required autocomplete>
-      </div>
-      <br>
-      <button type="submit" [disabled]="!form.valid" class="btn shadow mb-3 p-2 color-blue radius20">Login</button>
-      <br>
-      <a class="btn shadow mb-3 p-2 color-gray radius20" [routerLink]="['/register']">Register</a>
-    </form>
-  </div>
+<div class="orange-bg">
+  <div class="container-image">
+    <img src="../../../../assets/images/logo-black.png" alt="">
+  </div> 
+    
+    <div class="container fixed-bottom">
+      <form (ngSubmit)="onClickSubmitLogin()" #form="ngForm">
+      <h1 class="title"> Login</h1>
+        <div class="form-group">
+          <label class="body-text" for="exampleDropdownFormEmail2">Email address</label>
+          <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required automcomplete>
+        </div>
+        <div class="form-group">
+          <label for="exampleDropdownFormPassword2">Password</label>
+          <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required autocomplete>
+        </div>
+        <br>
+        <button type="submit" [disabled]="!form.valid" class="btn shadow mb-3 p-2 color-blue radius20">Login</button>
+        <br>
+        <a class="btn shadow mb-3 p-2 color-gray radius20" [routerLink]="['/register']">Register</a>
+      </form>
+    </div>
+</div>
 
