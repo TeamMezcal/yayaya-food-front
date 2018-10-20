@@ -26,3 +26,9 @@ body {
 }
 
 
+.title {
+  text-align: center; 
+  color: #F45225 !important; 
+  font-size: 80px; 
+}
+

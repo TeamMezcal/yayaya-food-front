@@ -1,3 +1,26 @@
 .nav-color {
-  background-color: #f4792e; 
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f45225+0,f45225+0,f48849+50,f5792f+100,f45225+100 */
+background: #f45225; /* Old browsers */
+background: -moz-linear-gradient(left, #f45225 0%, #f45225 0%, #f48849 50%, #f5792f 100%, #f45225 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #f45225 0%,#f45225 0%,#f48849 50%,#f5792f 100%,#f45225 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #f45225 0%,#f45225 0%,#f48849 50%,#f5792f 100%,#f45225 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f45225', endColorstr='#f45225',GradientType=1 ); /* IE6-9 */
+}
+
+
+.text {
+  color: #ffffff !important;  
+}
+
+.color-blue {
+  background: #0accff;
+  color:#ffff;
+}
+
+.radius20 {
+      border-radius: 20px ;
+      box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.75);
+      z-index: 2; 
+
+
 }

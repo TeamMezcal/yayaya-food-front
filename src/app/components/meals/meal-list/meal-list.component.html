@@ -1,20 +1,4 @@
-<h4> Delicious Home Meals Near You</h4>
-<br>
-<div class="row align-items-center shadow mb-3">
-    <div class="col-4 col-md-4 bar"><a class="btn" href="#">All</a></div>
-    <div class="col-4 col-md-4 bar"><a class="btn" href="#">New</a></div>
-    <div class="col-4 col-md-4 bar"><a class="btn" href="#">Popular</a></div>
-  </div>
-  <ul class="nav nav-pills nav-justified shadow mb-3"></ul>
-<!-- <div>
-  <agm-map [zoom]='10' [latitude]="40" [longitude]="-3"  > </agm-map>
-</div> -->
+<app-map-button></app-map-button>
+<app-meals-list-header></app-meals-list-header>
 <app-meal-item *ngFor="let meal of meals" [meal]="meal"></app-meal-item>
 
-<div class="fixed-bottom text-center shadow-lg p-2">
-        <button type="button" class="btn color-blue radius20" [routerLink]="['/maps-view']" >
-            <i class="fa fa-map-o" aria-hidden="true">
-            </i>
-            View Map
-        </button>
-    </div>

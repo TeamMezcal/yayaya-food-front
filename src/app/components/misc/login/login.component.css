@@ -19,3 +19,26 @@
   font-size: 24px; 
  
 }
+
+.title {
+  text-align: center; 
+  color: #F45225 !important; 
+  font-size: 80px; 
+}
+
+.body-text {
+  color: #511D11; 
+  font-display: bold; 
+
+}
+
+.container-image {
+  width: 65%; 
+  margin: 0 auto; 
+}
+
+img {
+  width: 100%; 
+  margin: 0 auto; 
+
+}

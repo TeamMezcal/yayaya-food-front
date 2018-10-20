@@ -14,5 +14,8 @@ agm-map {
 .radius20 {
       border-radius: 20px ;
       box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.75);
+      z-index: 1; 
+
 
 }
+
