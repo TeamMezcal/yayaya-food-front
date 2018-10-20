@@ -19,3 +19,16 @@
   font-size: 24px; 
  
 }
+
+.title {
+  text-align: center; 
+  color: #F45225 !important; 
+  font-size: 48px; 
+  font-family: cursive 
+}
+
+.body-text {
+  color: #511D11; 
+  font-display: bold; 
+
+}
