@@ -23,6 +23,11 @@ import { TagsFilterPipe } from './shared/pipes/tags-filter.pipe'
 
 
 import { AgmCoreModule } from '@agm/core';
+import { MapsViewComponent } from './components/misc/maps-view/maps-view.component';
+
+
+// Import your library
+import { OwlModule } from 'ngx-owl-carousel';
 
 //cloudinary setup :
 import { CloudinaryModule, CloudinaryConfiguration, provideCloudinary,  } from '@cloudinary/angular-5.x';
@@ -52,7 +57,8 @@ import { FileUploadModule} from 'ng2-file-upload'
     ReviewCreateComponent,
     SuccessComponent,
     PriceFilterPipe,
-    TagsFilterPipe
+    TagsFilterPipe,
+    MapsViewComponent
 
   ],
   imports: [
@@ -61,6 +67,7 @@ import { FileUploadModule} from 'ng2-file-upload'
     AppRoutingModule, 
     FormsModule,
     HttpClientModule,
+    OwlModule,
     AgmCoreModule.forRoot({
       apiKey:"AIzaSyAQk1fogZPukis0Aq-cEmt5Detd0CQHPvk",
       libraries: ['places']

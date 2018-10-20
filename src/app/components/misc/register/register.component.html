@@ -3,21 +3,29 @@
 <form (ngSubmit)="onClickRegisterLogin()" #formRegister="ngForm">
   <h3>Register</h3>
   <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Name</label>
-      <input class="form-control" id="exampleDropdownFormPassword2" name="name" placeholder="Name" [(ngModel)]="user.name" #password="ngModel" required autocomplete>
+    <p><small>*Required fields</small></p>  
+      <label for="exampleDropdownFormPassword2">Name*</label>
+      <input class="form-control" id="exampleDropdownFormPassword2" name="name" placeholder="How would you like us to call you?" [(ngModel)]="user.name" #password="ngModel" required autocomplete>
   </div>
   <div class="form-group">
-      <label for="exampleDropdownFormEmail2">Email address</label>
+      <label for="exampleDropdownFormEmail2">Email address*</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail2" name="email" placeholder="email@example.com" [(ngModel)]="user.email" #email="ngModel" required autocomplete>
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Password</label>
+      <label for="exampleDropdownFormPassword2">Password*</label>
       <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required autocomplete>
     </div>
     <br>
-    <a class="btn btn-secondary btn-block" [routerLink]="['/login']">Login</a>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Upload your photo, don't be shy</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" class="shadow">
+    </div>
     <br>
-    <button type="submit" [disabled]="!formRegister.valid" class="btn btn-success btn-block">Register</button>
+    <br>
+    <a class="btn shadow  mb-3 p-2 color-gray radius20"[routerLink]="['/login']">Login</a>
+    <br>
+    <button type="submit" [disabled]="!formRegister.valid" class="btn shadow mb-3 p-2 color-blue radius20">Register</button>
+
   </form>
 
   errors: {{myError}}
