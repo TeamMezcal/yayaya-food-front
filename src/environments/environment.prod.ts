@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'https://yayaya-food.herokuapp.com'
+  // apiUrl: 'http://localhost:3000'
+  
 
 };

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApi: 'http://localhost:3000',
+  baseApi: 'https://yayaya-food.herokuapp.com'
+  // baseApi: 'http://localhost:3000',
   
 };
 

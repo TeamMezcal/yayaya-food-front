@@ -31,7 +31,7 @@ export class ReviewItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onMealChanges.unsubscribe();
+    // this.onMealChanges.unsubscribe();
   }
 
 
