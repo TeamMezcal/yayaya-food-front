@@ -65,8 +65,8 @@ export class MealService extends BaseApiService {
 
 
 
-  create(userId: string, meal: Meal): Observable < Meal | ApiError > {
-    return this.http.post<Meal>(`${MealService.USER_API}/${userId}${MealService.MEALS_API}`, meal.asFormData(), { withCredentials: true })
+  create(meal: Meal): Observable < Meal | ApiError > {
+    return this.http.post<Meal>(`${MealService.USER_API}/${MealService.MEALS_API}`, meal.asFormData(), { withCredentials: true })
       .pipe(
         map((meal: Meal) => {
           meal = Object.assign(new Meal(), meal);
