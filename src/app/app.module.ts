@@ -29,6 +29,12 @@ import { MapsViewComponent } from './components/misc/maps-view/maps-view.compone
 // Import your library
 import { OwlModule } from 'ngx-owl-carousel';
 
+//cloudinary setup :
+import { CloudinaryModule, CloudinaryConfiguration, provideCloudinary,  } from '@cloudinary/angular-5.x';
+import * as  Cloudinary from 'cloudinary-core';
+import { Cloudinarysettings } from './settings/cloudinary.settings';
+import { FileUploadModule} from 'ng2-file-upload'
+
 
 
 
@@ -57,6 +63,7 @@ import { OwlModule } from 'ngx-owl-carousel';
   ],
   imports: [
     BrowserModule,
+    CloudinaryModule,
     AppRoutingModule, 
     FormsModule,
     HttpClientModule,
@@ -64,10 +71,11 @@ import { OwlModule } from 'ngx-owl-carousel';
     AgmCoreModule.forRoot({
       apiKey:"AIzaSyAQk1fogZPukis0Aq-cEmt5Detd0CQHPvk",
       libraries: ['places']
+    }),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'yayaya'}),
 
-    })
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
-import { AppSettings } from './app.settings';
+
+import { AppSettings } from './appsettings';
+
 
 export let Cloudinarysettings : AppSettings = {
     cloud_name: 'yayaya',
