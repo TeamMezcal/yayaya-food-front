@@ -44,7 +44,7 @@ export class MealFormComponent {
     image.src = MealFormComponent.IMG_PREVIEW;
   }
 
-  onSubmitPostForm(): void {
+  onSubmitCreateMeal(): void {
     if (this.mealForm.valid) {
       this.mealSubmit.emit(this.meal);
     }
