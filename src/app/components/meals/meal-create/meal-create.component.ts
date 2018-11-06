@@ -18,10 +18,11 @@ export class MealCreateComponent implements OnInit {
 
   
   ngOnInit() {
-    this.routes.params.subscribe(params => this.userId = params.userId);
+  
   }
 
-  onSubmitCreatePostForm(meal: Meal): void {
+  onSubmitCreateMealForm(meal: Meal): void {
+
     this.mealService.create(meal)
       .subscribe((meal: Meal) => {
         this.mealFormComponent.reset();

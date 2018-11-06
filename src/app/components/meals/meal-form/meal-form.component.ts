@@ -62,6 +62,9 @@ export class MealFormComponent {
 
   onSubmitMealForm(): void {
     if (this.mealForm.valid) {
+      const user = JSON.parse(localStorage.getItem("current-user"))
+      this.meal.user = user.id;
+      console.log(this.meal);
       this.mealSubmit.emit(this.meal);
     }
   }
@@ -72,7 +75,7 @@ export class MealFormComponent {
   }
 
   canDeactivate(): boolean {
-    return this.mealForm.dirty ? window.confirm('Discard changes for Post? Are you sure?') : true;
+    return this.mealForm.dirty ? window.confirm('Discard changes for Meal? Are you sure?') : true;
   }
 
   private renderPreviewImg(imageFile: File): void {
