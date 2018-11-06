@@ -7,7 +7,7 @@ export class Meal {
   price: number;
   images: Array<string> = [];
   tags: Array<string> = [];
-  ingredients: Array<string>;
+  ingredients: Array<string> = [];
   portions: number;
   user?: User = new User();
   createdAt?: Date;

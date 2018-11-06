@@ -72,6 +72,7 @@ export class MealService extends BaseApiService {
       .pipe(
         map((meal: Meal) => {
           meal = Object.assign(new Meal(), meal);
+          console.log(meal)
           this.meals.push(meal);
           this.notifyMealChanges();
           return meal;

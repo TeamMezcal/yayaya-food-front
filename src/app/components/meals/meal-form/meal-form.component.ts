@@ -15,7 +15,21 @@ export class MealFormComponent {
   @ViewChild('mealForm') mealForm: FormGroup;
   previewImages: Array<string | ArrayBuffer> = [];
 
-  constructor(private changesDetector: ChangeDetectorRef) {}
+  constructor(private changesDetector: ChangeDetectorRef) { }
+
+  onClickAddIngredient(ingredient: HTMLInputElement): void {
+    const ingredientValue: string = ingredient.value;
+    console.log(ingredientValue)
+    if (ingredientValue && this.meal.ingredients.indexOf(ingredientValue) === -1) {
+      this.meal.ingredients.push(ingredientValue);
+    }
+    ingredient.value = '';
+  }
+
+  onClickRemoveIngredient(ingredient: string): void {
+    this.meal.ingredients = this.meal.ingredients.filter(i => i !== ingredient);
+  }
+
 
   onClickAddTag(tag: HTMLInputElement): void {
     const tagValue: string = tag.value;
@@ -28,6 +42,8 @@ export class MealFormComponent {
   onClickRemoveTag(tag: string): void {
     this.meal.tags = this.meal.tags.filter(t => t !== tag);
   }
+
+
 
 
   onChangeImageFile(image: HTMLInputElement): void {
@@ -44,7 +60,7 @@ export class MealFormComponent {
     image.src = MealFormComponent.IMG_PREVIEW;
   }
 
-  onSubmitCreateMeal(): void {
+  onSubmitMealForm(): void {
     if (this.mealForm.valid) {
       this.mealSubmit.emit(this.meal);
     }
