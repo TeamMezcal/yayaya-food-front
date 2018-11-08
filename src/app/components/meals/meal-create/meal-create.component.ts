@@ -22,6 +22,7 @@ export class MealCreateComponent implements OnInit {
   }
 
   onSubmitCreateMealForm(meal: Meal): void {
+    console.log("Entro en onSubmitCreateMealForm")
 
     this.mealService.create(meal)
       .subscribe((meal: Meal) => {

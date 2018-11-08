@@ -65,7 +65,7 @@ export class MealFormComponent {
       const user = JSON.parse(localStorage.getItem("current-user"))
       this.meal.user = user.id;
       console.log(this.meal);
-      this.mealSubmit.emit(this.meal);
+      this.mealSubmit.emit(this.meal)
     }
   }
 
