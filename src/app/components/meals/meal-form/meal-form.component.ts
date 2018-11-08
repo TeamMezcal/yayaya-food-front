@@ -1,6 +1,8 @@
 import { Meal } from './../../../shared/models/meal.model';
-import { Component, Output, Input, EventEmitter, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, Output, Input, EventEmitter, ViewChild, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { MapService } from './../../../shared/services/map.service'
 
 @Component({
   selector: 'app-meal-form',
@@ -13,9 +15,28 @@ export class MealFormComponent {
   @Input() meal: Meal = new Meal();
   @Output() mealSubmit: EventEmitter<Meal> = new EventEmitter();
   @ViewChild('mealForm') mealForm: FormGroup;
+  @ViewChild('search') searchElement: ElementRef;
   previewImages: Array<string | ArrayBuffer> = [];
 
-  constructor(private changesDetector: ChangeDetectorRef) { }
+  onCoordsCreateMealChanges: Subscription;
+  onAdressCreateMealChanges: Subscription;
+
+  constructor(private mapService: MapService, private changesDetector: ChangeDetectorRef) { }
+
+  ngOnInit(){
+    
+    this.mapService.autoCompleteCities(this.searchElement);    
+    
+    this.onCoordsCreateMealChanges = this.mapService.onCoordsChanges()
+    .subscribe((location: Array<number>) => {
+      this.meal.location = location;                              
+    })
+    
+    this.onAdressCreateMealChanges = this.mapService.onAddressChanges()
+    .subscribe((address: string) => {
+      this.meal.address = address;                        
+    })
+  }
 
   onClickAddIngredient(ingredient: HTMLInputElement): void {
     const ingredientValue: string = ingredient.value;

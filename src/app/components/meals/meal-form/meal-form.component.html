@@ -25,13 +25,17 @@
       </div>
     </div>
 
-    <!-- TO-DO: Location : Google places autocomplete -->
+    <div class="form-group">
+      <label for="Location">Search for Location</label>
+      <input type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search>
+    </div>
+    
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-eur"></i></span>
       </div>
-      <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" [ngClass]="{'is-invalid': price.touched && price.errors}"
+      <input type="number" min = "0.1" class="form-control" aria-label="Amount (to the nearest dollar)" [ngClass]="{'is-invalid': price.touched && price.errors}"
         placeholder="19.95" name="price" [(ngModel)]="meal.price" #price="ngModel" required>
       <div class="input-group-prepend">
         <span class="input-group-text">$</span>
@@ -78,7 +82,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-pie-chart"></i></span>
       </div>
-      <input type="number" class="form-control" [ngClass]="{'is-invalid': portions.touched && portions.errors}"
+      <input type="number" min="1" class="form-control" [ngClass]="{'is-invalid': portions.touched && portions.errors}"
       placeholder="Number of portions availvable" name="portions" [(ngModel)]="meal.portions" #portions="ngModel" required>
       <div class="invalid-feedback" *ngIf="portions.errors && portions.touched && portions.errors.required">
         How many portions are available for sale?
