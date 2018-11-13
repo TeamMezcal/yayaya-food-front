@@ -3,11 +3,13 @@ import { User } from './user.model';
 export class Meal {
   id?: string;
   name: string;
+  location: Array<number>;
+  address: String;  
   description: string;
   price: number;
   images: Array<string> = [];
   tags: Array<string> = [];
-  ingredients: Array<string>;
+  ingredients: Array<string> = [];
   portions: number;
   user?: User = new User();
   createdAt?: Date;
@@ -18,7 +20,15 @@ export class Meal {
 
     data.append('name', this.name);
     data.append('content', this.description);
+    data.append('address', (this.address).toString());
+    data.append('price', (this.price).toString());
+    data.append('portions', (this.portions).toString());
+    data.append('location', (this.location).toString())
     
+    for (const ingredient of this.ingredients){
+      data.append('ingredients', ingredient)
+    }
+
     for (const tag of this.tags) {
       data.append('tags', tag);
     }
