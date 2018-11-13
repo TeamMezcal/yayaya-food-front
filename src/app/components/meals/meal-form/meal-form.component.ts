@@ -3,6 +3,7 @@ import { Component, Output, Input, EventEmitter, ViewChild, ChangeDetectorRef, E
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MapService } from './../../../shared/services/map.service'
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-meal-form',
@@ -18,24 +19,48 @@ export class MealFormComponent {
   @ViewChild('search') searchElement: ElementRef;
   previewImages: Array<string | ArrayBuffer> = [];
 
+
   onCoordsCreateMealChanges: Subscription;
   onAdressCreateMealChanges: Subscription;
+  selectedFile: File = null;
+ 
+  onFileSelected(event) {
+    this.selectedFile =<File> event.target.files[0]
 
-  constructor(private mapService: MapService, private changesDetector: ChangeDetectorRef) { }
+  }
+  onUpload(){
+    const fd= new FormData;
+    fd.append('image', this.selectedFile, this.selectedFile.name)
+    this.http.post('cloudinary://829334976288298:WMj1aCSjT9BKm-mjDix45D23Ojg@hqmrkoujl', fd, {
+      reportProgress: true,
+      observe: 'events'
+   })
+    .subscribe(event =>{
+      if(event.type ===HttpEventType.UploadProgress){
+        console.log('Upload Progress: ' + Math.round(event.loaded/event.total * 100) + '%'
+        )
+      }else if(event.type === HttpEventType.Response){
+        console.log(event)
+      }
+    })
 
-  ngOnInit(){
-    
-    this.mapService.autoCompleteCities(this.searchElement);    
-    
+  }
+
+  constructor(private mapService: MapService, private changesDetector: ChangeDetectorRef, private http :HttpClient) { }
+
+  ngOnInit() {
+
+    this.mapService.autoCompleteCities(this.searchElement);
+
     this.onCoordsCreateMealChanges = this.mapService.onCoordsChanges()
-    .subscribe((coordinates: Array<number>) => {
-      this.meal.coordinates = coordinates;                              
-    })
-    
+      .subscribe((coordinates: Array<number>) => {
+        this.meal.coordinates = coordinates;
+      })
+
     this.onAdressCreateMealChanges = this.mapService.onAddressChanges()
-    .subscribe((address: string) => {
-      this.meal.address = address;                        
-    })
+      .subscribe((address: string) => {
+        this.meal.address = address;
+      })
   }
 
   onClickAddIngredient(ingredient: HTMLInputElement): void {
