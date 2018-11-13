@@ -9,10 +9,10 @@ declare var google;
   providedIn: 'root'
 })
 export class MapService {
-  public static readonly LOCATION_KEY = 'location';
+  public static readonly coordinates_KEY = 'coordinates';
   
   place: google.maps.places.PlaceResult;
-  location:  Array<Number> = [];
+  coordinates:  Array<Number> = [];
   address: string;
   coordsSubject = new Subject();
   addressSubject = new Subject();
@@ -29,9 +29,9 @@ export class MapService {
         this.ngZone.run(() => {
           this.place = autocomplete.getPlace();
           
-          this.location.splice(0, 2);
-          this.location.push(this.place.geometry.location.lng())
-          this.location.push(this.place.geometry.location.lat())
+          this.coordinates.splice(0, 2);
+          this.coordinates.push(this.place.geometry.location.lng())
+          this.coordinates.push(this.place.geometry.location.lat())
           this.address = this.place.formatted_address;
           this.notifyCoords();
           this.notifyAddress();
@@ -45,7 +45,7 @@ export class MapService {
   }
   
   notifyCoords():void{
-    this.coordsSubject.next(this.location);
+    this.coordsSubject.next(this.coordinates);
   }
   notifyAddress():void{
     this.addressSubject.next(this.address);
