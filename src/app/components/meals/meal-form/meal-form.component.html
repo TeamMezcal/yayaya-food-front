@@ -2,9 +2,9 @@
   <form (ngSubmit)="onSubmitMealForm()" #mealForm="ngForm">
     <h3 class="title-text"> Create a meal</h3>
     <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fa fa-edit"></i></span>
-          </div>
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+      </div>
 
       <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Ex: The Best Home Tortilla in Alicante"
         name="name" [(ngModel)]="meal.name" #name="ngModel" required>
@@ -25,17 +25,25 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="Location">Search for Location</label>
-      <input type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search>
+
+    <div class="input-group mb-3">
+      <label for="coordinates"></label>
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+      </div>
+      <input type="text" placeholder="Search for location" autocorrect="off" autocapitalize="off" spellcheck="off" required
+        class="form-control" #search>
+
     </div>
-    
+
+
+
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-eur"></i></span>
       </div>
-      <input type="number" min = "0.1" class="form-control" aria-label="Amount (to the nearest dollar)" [ngClass]="{'is-invalid': price.touched && price.errors}"
+      <input type="number" min="0.1" class="form-control" aria-label="Amount (to the nearest dollar)" [ngClass]="{'is-invalid': price.touched && price.errors}"
         placeholder="19.95" name="price" [(ngModel)]="meal.price" #price="ngModel" required>
       <div class="input-group-prepend">
         <span class="input-group-text">$</span>
@@ -55,35 +63,32 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-battery-full"></i></span>
       </div>
-      <input type="text" class="form-control" placeholder="ingredients" name="ingredient" #ingredient required> 
+      <input type="text" class="form-control" placeholder="Ingredient" name="ingredient" #ingredient>
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" (click)="onClickAddIngredient(ingredient)"><i class="fa fa-plus"></i></button>
       </div>
     </div>
 
-    
-  
     <div class="input-group mb-3" *ngFor="let ingredient of meal.ingredients">
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-battery-quarter"></i></span>
       </div>
-      <input type="text" class="form-control" [ngClass]="{'is-invalid': ingredients.touched && ingredients.errors}" name="ingredients" [(ngModel)]="meal.ingredients" #ingredients="ngModel"[value]="ingredient" required disabled readonly> 
+      <input type="text" class="form-control" name="ingredients" [value]="ingredient" disabled readonly>
       <div class="input-group-append">
         <button class="btn btn-outline-danger" type="button" (click)="onClickRemoveIngredient(ingredient)"><i class="fa fa-minus"></i></button>
       </div>
-      <div class="input-group-append invalid-feedback"  *ngIf="ingredients.errors && ingredients.touched && ingredients.errors.required">
-        How many portions are available for sale?></div>
-
-    
-
     </div>
-    
+
+
+ 
+
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-pie-chart"></i></span>
       </div>
       <input type="number" min="1" class="form-control" [ngClass]="{'is-invalid': portions.touched && portions.errors}"
-      placeholder="Number of portions availvable" name="portions" [(ngModel)]="meal.portions" #portions="ngModel" required>
+        placeholder="Number of portions availvable" name="portions" [(ngModel)]="meal.portions" #portions="ngModel"
+        required>
       <div class="invalid-feedback" *ngIf="portions.errors && portions.touched && portions.errors.required">
         How many portions are available for sale?
       </div>
@@ -123,7 +128,7 @@
 
     <br>
 
-    
+
 
     <button type="submit" [disabled]="!mealForm.valid" class="btn shadow mb-3 p-2 color-blue radius20">Create Meal</button>
   </form>

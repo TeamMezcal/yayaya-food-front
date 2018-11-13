@@ -28,8 +28,8 @@ export class MealFormComponent {
     this.mapService.autoCompleteCities(this.searchElement);    
     
     this.onCoordsCreateMealChanges = this.mapService.onCoordsChanges()
-    .subscribe((location: Array<number>) => {
-      this.meal.location = location;                              
+    .subscribe((coordinates: Array<number>) => {
+      this.meal.coordinates = coordinates;                              
     })
     
     this.onAdressCreateMealChanges = this.mapService.onAddressChanges()

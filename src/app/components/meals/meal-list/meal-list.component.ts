@@ -14,7 +14,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class MealListComponent implements OnInit, OnDestroy {
   meals: Array<Meal> = [];
   onMealsChangesSubscription: Subscription;
-  @ViewChild(MealCreateComponent) postCreateComponent: MealCreateComponent;
+  @ViewChild(MealCreateComponent) mealCreateComponent: MealCreateComponent;
 
   // private route: ActivatedRoute;
   // private mealsService: MealsService;

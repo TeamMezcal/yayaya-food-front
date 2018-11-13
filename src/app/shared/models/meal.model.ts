@@ -3,7 +3,7 @@ import { User } from './user.model';
 export class Meal {
   id?: string;
   name: string;
-  location: Array<number>;
+  coordinates: Array<number>;
   address: String;  
   description: string;
   price: number;
@@ -23,7 +23,7 @@ export class Meal {
     data.append('address', (this.address).toString());
     data.append('price', (this.price).toString());
     data.append('portions', (this.portions).toString());
-    data.append('location', (this.location).toString())
+    data.append('coordinates', (this.coordinates).toString())
     
     for (const ingredient of this.ingredients){
       data.append('ingredients', ingredient)
