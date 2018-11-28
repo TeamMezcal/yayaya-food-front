@@ -17,13 +17,14 @@ export class Meal {
 
   public asFormData(): FormData {
     const data = new FormData();
+    console.log('Meal name in FormData:------>',this.name)
 
     data.append('name', this.name);
-    data.append('content', this.description);
+    data.append('description', this.description);
     data.append('address', (this.address).toString());
     data.append('price', (this.price).toString());
     data.append('portions', (this.portions).toString());
-    data.append('coordinates', (this.coordinates).toString())
+    data.append('coordinates', (this.coordinates).toString());
     
     for (const ingredient of this.ingredients){
       data.append('ingredients', ingredient)
@@ -36,6 +37,8 @@ export class Meal {
     for (const imageFile of this.imageFiles) {
       data.append('images', imageFile);
     }
+
+    console.log('Data after formdata:----->', data)
 
     return data;
   }

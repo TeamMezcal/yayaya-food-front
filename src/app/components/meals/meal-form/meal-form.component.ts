@@ -23,7 +23,8 @@ export class MealFormComponent {
   onCoordsCreateMealChanges: Subscription;
   onAdressCreateMealChanges: Subscription;
   selectedFile: File = null;
- 
+
+
   onFileSelected(event) {
     this.selectedFile =<File> event.target.files[0]
 
@@ -110,8 +111,8 @@ export class MealFormComponent {
     if (this.mealForm.valid) {
       const user = JSON.parse(localStorage.getItem("current-user"))
       this.meal.user = user.id;
-      console.log(this.meal);
       this.mealSubmit.emit(this.meal)
+      console.log(this.meal);
     }
   }
 

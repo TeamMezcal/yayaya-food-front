@@ -20,19 +20,19 @@ export class MealService extends BaseApiService {
     super();
   }
 
-  list(userId: string): Observable <Array<Meal> | ApiError > {
-    console.log("user id ------->", userId)
-    return this.http.get<Array<Meal>>(`${MealService.USER_API}/${userId}${MealService.MEALS_API}`, BaseApiService.defaultOptions)
-      .pipe(
-        map((meals: Array<Meal>) => {
-          meals = meals.map(meal => Object.assign(new Meal(), meal));
-          this.meals = meals;
-          this.notifyMealChanges();
-          return meals;
-        }),
-        catchError(this.handleError)
-      );
-  }
+  // list(userId: string): Observable <Array<Meal> | ApiError > {
+  //   console.log("user id ------->", userId)
+  //   return this.http.get<Array<Meal>>(`${MealService.USER_API}/${userId}${MealService.MEALS_API}`, BaseApiService.defaultOptions)
+  //     .pipe(
+  //       map((meals: Array<Meal>) => {
+  //         meals = meals.map(meal => Object.assign(new Meal(), meal));
+  //         this.meals = meals;
+  //         this.notifyMealChanges();
+  //         return meals;
+  //       }),
+  //       catchError(this.handleError)
+  //     );
+  // }
 
   listAllMeals(): Observable <Array<Meal> | ApiError > {
     console.log("ENTRO EN LIST ALL MEALS DEL SERVICIO")
@@ -66,21 +66,21 @@ export class MealService extends BaseApiService {
 
 
   create(meal: Meal): Observable < Meal | ApiError > {
+    console.log('meal received in meal service------->',meal) 
 
-    console.log(Meal);
     return this.http.post<Meal>(`${MealService.MEALS_API}`, meal.asFormData(), { withCredentials: true })
-
-      .pipe(
-        map((meal: Meal) => {
-          meal = Object.assign(new Meal(), meal);
-          console.log(meal)
+    
+    .pipe(
+      map((meal: Meal) => {
+        meal = Object.assign(new Meal(), meal);
+          console.log('MEAL PUSHED------->',meal)
           this.meals.push(meal);
           this.notifyMealChanges();
           return meal;
         }),
         catchError(this.handleError));
   }
-
+  
   delete(userId: string, id: string): Observable < void | ApiError > {
     return this.http.delete<void>(`${MealService.USER_API}/${userId}${MealService.MEALS_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
