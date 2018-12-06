@@ -1,0 +1,126 @@
+<div>
+  <form (ngSubmit)="onSubmitRequestForm()" #requestForm="ngForm">
+    <h3 class="title-text"> Publish a new Meal request</h3>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+      </div>
+
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Ex: The Best Home Tortilla in Alicante"
+        name="name" [(ngModel)]="request.name" #name="ngModel" required>
+      <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+        Please enter a name for meal.
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+      </div>
+      <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}"
+        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        name="description" [(ngModel)]="request.description" #description="ngModel" required></textarea>
+      <div class="invalid-feedback" *ngIf="description.errors && description.touched && description.errors.required">
+        Please enter a description, madafaca.
+      </div>
+    </div>
+
+
+    <div class="input-group mb-3">
+      <label for="coordinates"></label>
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-edit"></i></span>
+      </div>
+      <input type="text" placeholder="Search for location" autocorrect="off" autocapitalize="off" spellcheck="off" required
+        class="form-control" #search>
+
+    </div>
+
+
+
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-eur"></i></span>
+      </div>
+      <input type="number" min="0.1" class="form-control" aria-label="Amount (to the nearest dollar)" [ngClass]="{'is-invalid': price.touched && price.errors}"
+        placeholder="19.95" name="price" [(ngModel)]="request.price" #price="ngModel" required>
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+      </div>
+      <div class="input-group-append">
+        <span class="input-group-text">.00</span>
+      </div>
+      <div class="invalid-feedback" *ngIf="price.errors && price.touched && price.errors.required">
+        If you think people will feed you for free, think again
+      </div>
+    </div>
+
+
+
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-battery-full"></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Ingredient" name="ingredient" #ingredient>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="onClickAddIngredient(ingredient)"><i class="fa fa-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="input-group mb-3" *ngFor="let ingredient of request.ingredients">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-battery-quarter"></i></span>
+      </div>
+      <input type="text" class="form-control" name="ingredients" [value]="ingredient" disabled readonly>
+      <div class="input-group-append">
+        <button class="btn btn-outline-danger" type="button" (click)="onClickRemoveIngredient(ingredient)"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+
+
+ 
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-pie-chart"></i></span>
+      </div>
+      <input type="number" min="1" class="form-control" [ngClass]="{'is-invalid': portions.touched && portions.errors}"
+        placeholder="Number of portions requested" name="portions" [(ngModel)]="request.portions" #portions="ngModel"
+        required>
+      <div class="invalid-feedback" *ngIf="portions.errors && portions.touched && portions.errors.required">
+        How many portions are available for sale?
+      </div>
+    </div>
+
+  
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-exclamation"></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Technique" name="technique" #technique>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="onClickAddTechnique(technique)"><i class="fa fa-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="input-group mb-3" *ngFor="let technique of request.techniques">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-binoculars"></i></span>
+      </div>
+      <input type="text" class="form-control" name="tags" [value]="tag" disabled readonly>
+      <div class="input-group-append">
+        <button class="btn btn-outline-danger" type="button" (click)="onClickRemoveTechnique(technique)"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+
+
+    <br>
+
+
+
+    <button type="submit" [disabled]="!requestForm.valid" class="btn shadow mb-3 p-2 color-blue radius20">Create Request</button>
+  </form>
+</div>

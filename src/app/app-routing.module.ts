@@ -11,6 +11,7 @@ import { IsNotAuthGuard } from './shared/guards/is-not-auth.guard';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 import { SuccessComponent } from './components/misc/success/success.component';
 import { MapsViewComponent } from './components/misc/maps-view/maps-view.component';
+import { RequestFormComponent } from './components/requests/request-form/request-form.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "login", pathMatch:"full"},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'maps-view', canActivate: [IsauthGuard], component: MapsViewComponent},
   {path: 'meal-create', canActivate: [IsauthGuard], component: MealCreateComponent},
   {path: 'meal-form', canActivate: [IsauthGuard], component: MealFormComponent},
+  {path:'meal-requests', canActivate: [IsauthGuard], component: RequestFormComponent}
 
 ];
 

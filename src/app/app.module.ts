@@ -36,7 +36,11 @@ import { ListButtonComponent } from './components/misc/list-button/list-button.c
 import { CloudinaryModule, CloudinaryConfiguration, provideCloudinary,  } from '@cloudinary/angular-5.x';
 import * as  Cloudinary from 'cloudinary-core';
 import { Cloudinarysettings } from './settings/cloudinary.settings';
-import { FileUploadModule} from 'ng2-file-upload'
+import { FileUploadModule} from 'ng2-file-upload';
+import { RequestCreateComponent } from './components/requests/request-create/request-create.component';
+import { RequestFormComponent } from './components/requests/request-form/request-form.component';
+import { RequestItemComponent } from './components/requests/request-item/request-item.component';
+import { RequestListComponent } from './components/requests/request-list/request-list.component'
 
 
 
@@ -65,7 +69,7 @@ import { FileUploadModule} from 'ng2-file-upload'
     MealsListHeaderComponent,
     MapButtonComponent,
     ListButtonComponent, 
-    MealsListHeaderComponent
+    MealsListHeaderComponent, RequestCreateComponent, RequestFormComponent, RequestItemComponent, RequestListComponent
 
   ],
   imports: [
